@@ -13,8 +13,8 @@ const Navbar = (props) => {
             <a  className="brand-logo">Employees</a>
             <ul className="right">
                 <li><Link to="/home"> Home </Link>  </li>
-                <li><Link to="/about"> About</Link></li>
-                <li><Link to="/contact"> Contact </Link>  </li>
+                <li><NavLink to="/about"> About</NavLink></li>
+                <li><NavLink to="/contact"> Contact </NavLink>  </li>
             </ul>
             </div>
         </nav>
