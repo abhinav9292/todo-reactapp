@@ -1,7 +1,9 @@
 import React from 'react';
+import ColouringText from '../hoc/ColouringText.js'
 
 
-const About = () => {
+const About = (props) => {
+    
     return(
         <div className="container">
             <h1 className="center">About</h1>
@@ -11,4 +13,4 @@ const About = () => {
     )
 }
 
-export default About;
+export default ColouringText(About) ;
