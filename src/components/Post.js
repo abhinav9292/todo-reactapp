@@ -1,41 +1,48 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import { connect } from "react-redux";
 
-class Post extends Component{
-    state = {
-        post : null
+class Post extends Component {
+
+    handleClick = () => {
+        this.props.deletePost(this.props.post.id);
+        this.props.history.push('/')
     }
 
-    componentDidMount(){
+    render() {
+        console.log("this is the props", this.props)
+        const post = this.props.post ?
+            (
+                <div className="post">
+                    <h3 className="center">{this.props.post.title}</h3>
+                    <p>{this.props.post.body}</p>
+                    <div className="right">
+                        <button className="btn red" onClick = {this.handleClick}>Delete Post</button>
+                    </div>
+                </div>
+            )
+            : (
+                <div className="center">Loading ...</div>
+            )
 
-        let id = this.props.match.params.post_id;
-        console.log("id =", id)
-        Axios.get('https://jsonplaceholder.typicode.com/posts/'+id)
-            .then( res => {
-                this.setState({
-                    post : res.data
-                })
-            })
-    }
-    render(){
-
-        const post = this.state.post ? 
-        (
-            <div className="post">
-                <h3 className="center">{this.state.post.title}</h3>
-                <p>{this.state.post.body}</p>
-            </div>
-        ) 
-        : (
-            <div className="center">Loading ...</div>
-        ) 
-
-        return(
-            <div className="container">
-                <h1 className="center"> { post } </h1>
+        return (
+            <div className="container mb-4">
+                <h1 className="center"> {post} </h1>
             </div>
         )
     }
 }
 
-export default Post;
+const mapStateToProps = (state, ownProps) => {
+    let id = ownProps.match.params.post_id;
+    return {
+        post: state.posts.find(post => post.id == id)
+    }
+}
+
+const mapDsiapatchToProps = (dispatch) => {
+    return {
+        deletePost: (id) => { dispatch({ type: "DELETE_POST", id: id }) }
+    }
+}
+
+export default connect(mapStateToProps, mapDsiapatchToProps)(Post);

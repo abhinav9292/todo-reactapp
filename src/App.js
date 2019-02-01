@@ -52,8 +52,8 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/:post_id" component={Post} />
           </Switch>
-          <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
-          <AddTodo addTodo={this.addTodo} />
+          {/* <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+          <AddTodo addTodo={this.addTodo} /> */}
         </div>
 
       </BrowserRouter>
