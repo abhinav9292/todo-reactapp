@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "/Users/abhinavreddymareddy/Desktop/ReactJS/todoapp"
+		}
+	],
+	"settings": {
+		"emmet.includeLanguages": {
+			"javascript": "javascriptreact"
+			},
+	}
+}

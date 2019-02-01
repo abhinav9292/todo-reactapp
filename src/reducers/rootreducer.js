@@ -2,7 +2,7 @@
 const initState = {
     posts : [
         {id:1, title:"eat food", body:'lorem20'},
-        {id:2, title:"drink water", body:'lorem30'},
+        {id:2, title:"drink water", body:'lorem50'},
         {id:3, title:"study hard", body:'lorem40'},
     ]
 }
